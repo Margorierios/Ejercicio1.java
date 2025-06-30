@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class Ejercicio16 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int sensoresFueraRango = 0;
+        
+        for (int i = 1; i <= 50; i++) {
+            System.out.print("Ingrese lectura del sensor " + i + ": ");
+            double lectura = scanner.nextDouble();
+            
+            if (lectura > 100 || lectura < 0) {
+                sensoresFueraRango++;
+            }
+        }
+        
+        System.out.println("Sensores fuera de rango: " + sensoresFueraRango);
+    }
+}
