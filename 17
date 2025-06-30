@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class Ejercicio17 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int numerosNegativos = 0;
+        
+        for (int i = 1; i <= 15; i++) {
+            System.out.print("Ingrese el número " + i + ": ");
+            double numero = scanner.nextDouble();
+            
+            if (numero < 0) {
+                numerosNegativos++;
+            }
+        }
+        
+        System.out.println("Total de números negativos ingresados: " + numerosNegativos);
+    }
+}
