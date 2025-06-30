@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class Ejercicio8 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] edades = new int[10];
+        int mayores = 0;
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Ingrese edad de la persona " + (i+1) + ": ");
+            edades[i] = scanner.nextInt();
+            
+            if (edades[i] >= 18) {
+                mayores++;
+            }
+            
+            if (edades[i] > max) {
+                max = edades[i];
+            }
+            
+            if (edades[i] < min) {
+                min = edades[i];
+            }
+        }
+        
+        System.out.println("\nEdades ingresadas:");
+        for (int edad : edades) {
+            System.out.print(edad + " ");
+        }
+        
+        System.out.println("\nMayores de edad: " + mayores);
+        System.out.println("Edad más alta: " + max);
+        System.out.println("Edad más baja: " + min);
+    }
+}
