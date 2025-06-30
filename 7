@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Ejercicio7 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Ingrese el total de la compra: ");
+        double total = scanner.nextDouble();
+        
+        System.out.print("¿Paga con tarjeta? (true/false): ");
+        boolean pagaConTarjeta = scanner.nextBoolean();
+        
+        if (total > 150) {
+            total *= 0.85; // Aplica 15% de descuento
+        }
+        
+        if (pagaConTarjeta) {
+            total *= 1.02; // Añade 2% de comisión
+        }
+        
+        System.out.printf("Monto final a pagar: $%.2f", total);
+    }
+}
