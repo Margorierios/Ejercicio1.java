@@ -1,0 +1,14 @@
+public class Ejercicio1 {
+        public static void main(String[] args) {
+            double calificacionInicial = 14;
+            double asistencia = 85; // porcentaje
+
+            if (asistencia > 80) {
+                calificacionInicial += 2;
+            }
+
+            boolean aprobado = calificacionInicial >= 16;
+            System.out.println("Calificación final: " + calificacionInicial);
+            System.out.println("Estado: " + (aprobado ? "Aprobado" : "Reprobado"));
+        }
+}
