@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Ejercicio15 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] visitas = new int[30];
+        int totalVisitas = 0;
+        
+        for (int i = 0; i < 30; i++) {
+            System.out.print("Ingrese visitas del día " + (i+1) + ": ");
+            visitas[i] = scanner.nextInt();
+            totalVisitas += visitas[i];
+        }
+        
+        double promedioDiario = (double) totalVisitas / 30;
+        
+        System.out.println("Total de visitas del mes: " + totalVisitas);
+        System.out.println("Promedio diario: " + promedioDiario);
+    }
+}
