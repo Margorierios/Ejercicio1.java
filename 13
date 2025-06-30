@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class Ejercicio13 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double suma = 0;
+        
+        for (int i = 1; i <= 5; i++) {
+            System.out.print("Ingrese el número " + i + ": ");
+            suma += scanner.nextDouble();
+        }
+        
+        System.out.println("La suma total es: " + suma);
+    }
+}
