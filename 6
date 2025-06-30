@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Ejercicio6 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese su edad: ");
+        int edad = scanner.nextInt();
+
+        System.out.print("¿Presenta cédula? (true/false): ");
+        boolean tieneCedula = scanner.nextBoolean();
+
+        if (edad >= 16 && tieneCedula) {
+            System.out.println("Puede votar");
+        } else {
+            System.out.println("No puede votar. Motivo:");
+            if (edad < 16) {
+                System.out.println("- No tiene la edad mínima requerida");
+            }
+            if (!tieneCedula) {
+                System.out.println("- No presenta cédula de identidad");
+            }
+        }
+    }
+}
