@@ -1,0 +1,72 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+public class Pract2 extends JFrame implements ActionListener {
+    private JTextField campoCodigo, campoNombre, campoPrecio, campoCantidad,
+            campoSubtotal, campoIVA, campoTotal;
+    private JButton btnCalcular, btnLimpiar;
+    public Pract2() {
+        setTitle("Calculadora de Compras Elaborada");
+        setLayout(new GridLayout(8, 2));
+        add(new JLabel("Código del producto:"));
+        campoCodigo = new JTextField();
+        add(campoCodigo);
+        add(new JLabel("Nombre del producto:"));
+        campoNombre = new JTextField();
+        add(campoNombre);
+        add(new JLabel("Precio unitario:"));
+        campoPrecio = new JTextField();
+        add(campoPrecio);
+        add(new JLabel("Cantidad:"));
+        campoCantidad = new JTextField();
+        add(campoCantidad);
+        btnCalcular = new JButton("Calcular");
+        btnLimpiar = new JButton("Limpiar");
+        add(btnCalcular);
+        add(btnLimpiar);
+        add(new JLabel("Subtotal:"));
+        campoSubtotal = new JTextField();
+        campoSubtotal.setEditable(false);
+        add(campoSubtotal);
+        add(new JLabel("IVA (16%):"));
+        campoIVA = new JTextField();
+        campoIVA.setEditable(false);
+        add(campoIVA);
+        add(new JLabel("Total a pagar:"));
+        campoTotal = new JTextField();
+        campoTotal.setEditable(false);
+        add(campoTotal);
+        btnCalcular.addActionListener(this);
+        btnLimpiar.addActionListener(this);
+        setSize(400, 350);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+    }
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == btnCalcular) {
+            try {
+                double precio = Double.parseDouble(campoPrecio.getText());
+                int cantidad = Integer.parseInt(campoCantidad.getText());
+                double subtotal = precio * cantidad;
+                double iva = subtotal * 0.16;
+                double total = subtotal + iva;
+                campoSubtotal.setText(String.format("%.2f", subtotal));
+                campoIVA.setText(String.format("%.2f", iva));
+                campoTotal.setText(String.format("%.2f", total));
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, "Por favor, ingrese datos válidos.");
+            }
+        } else if (e.getSource() == btnLimpiar) {
+            campoCodigo.setText("");
+            campoNombre.setText("");
+            campoPrecio.setText("");
+            campoCantidad.setText("");
+            campoSubtotal.setText("");
+            campoIVA.setText("");
+            campoTotal.setText("");
+        }
+    }
+    public static void main(String[] args) {
+        new Pract2();
+    }
+}
