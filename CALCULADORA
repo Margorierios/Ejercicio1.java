@@ -1,0 +1,63 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+public class Actividad3 extends JFrame implements ActionListener {
+    private JTextField campoNum1, campoNum2, campoResultado;
+    private JButton btnSumar, btnRestar, btnMultiplicar, btnDividir,
+            btnLimpiar;
+    public Actividad3() {
+        setTitle("Calculadora Nueva");
+        setLayout(new GridLayout(5, 2));
+        add(new JLabel("Número 1:"));
+        campoNum1 = new JTextField();
+        add(campoNum1);
+        add(new JLabel("Número 2:"));
+        campoNum2 = new JTextField();
+        add(campoNum2);
+        btnSumar = new JButton("Sumar");
+        btnRestar = new JButton("Restar");
+        btnMultiplicar = new JButton("Multiplicar");
+        btnDividir = new JButton("Dividir");
+        btnLimpiar = new JButton("Limpiar");
+        add(btnSumar);
+        add(btnRestar);
+        add(btnMultiplicar);
+        add(btnDividir);
+        add(new JLabel("Resultado:"));
+        campoResultado = new JTextField();
+        campoResultado.setEditable(false);
+        add(campoResultado);
+        add(btnLimpiar);
+        btnSumar.addActionListener(this);
+        btnRestar.addActionListener(this);
+        btnMultiplicar.addActionListener(this);
+        btnDividir.addActionListener(this);
+        btnLimpiar.addActionListener(this);
+        setSize(400, 250);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+    }
+    public void actionPerformed(ActionEvent e) {
+        double num1 = Double.parseDouble(campoNum1.getText());
+        double num2 = Double.parseDouble(campoNum2.getText());
+        double resultado = 0;
+        if (e.getSource() == btnSumar) {
+            resultado = num1 + num2;
+        } else if (e.getSource() == btnRestar) {
+            resultado = num1 - num2;
+        } else if (e.getSource() == btnMultiplicar) {
+            resultado = num1 * num2;
+        } else if (e.getSource() == btnDividir) {
+            resultado = num2 != 0 ? num1 / num2 : 0;
+        } else if (e.getSource() == btnLimpiar) {
+            campoNum1.setText("");
+            campoNum2.setText("");
+            campoResultado.setText("");
+            return;
+        }
+        campoResultado.setText(String.valueOf(resultado));
+    }
+    public static void main(String[] args) {
+        new Actividad3();
+    }
+}
