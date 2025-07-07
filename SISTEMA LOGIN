@@ -1,0 +1,45 @@
+mport javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+public class Pract1 extends JFrame implements ActionListener {
+    private JTextField campoUsuario;
+    private JPasswordField campoContrasena;
+    private JButton btnIngresar, btnCancelar;
+    public Pract1() {
+        setTitle("Login Nuevo");
+        setLayout(new GridLayout(3, 2));
+        add(new JLabel("Usuario:"));
+        campoUsuario = new JTextField();
+        add(campoUsuario);
+        add(new JLabel("Contraseña:"));
+        campoContrasena = new JPasswordField();
+        add(campoContrasena);
+        btnIngresar = new JButton("Ingresar");
+        btnCancelar = new JButton("Cancelar");
+        add(btnIngresar);
+        add(btnCancelar);
+        btnIngresar.addActionListener(this);
+        btnCancelar.addActionListener(this);
+        setSize(300, 150);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+    }
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == btnIngresar) {
+            String usuario = campoUsuario.getText();
+            String contrasena = new String(campoContrasena.getPassword());
+            if (usuario.equals("CENESTUR") && contrasena.equals("C1234")) {
+                JOptionPane.showMessageDialog(this, "¡Bienvenido, " + usuario
+                        + "!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Usuario o contraseñ incorrectos.");
+            }
+        } else if (e.getSource() == btnCancelar) {
+            campoUsuario.setText("");
+            campoContrasena.setText("");
+        }
+    }
+    public static void main(String[] args) {
+        new Pract1();
+    }
+}
