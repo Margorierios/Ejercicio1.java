@@ -66,3 +66,6 @@ B) Públicos para acceder/controlar atributos privados.
 
 20. ¿Por qué es mejor tener atributos privados y exponerlos mediante métodos?
 A) Evita accesos no deseados y permite validación antes de modificar.
+
+
+<img width="1366" height="768" alt="Captura de pantalla (352)" src="https://github.com/user-attachments/assets/c810fed7-e33e-4cdf-9089-02fc1d3e3116" />
